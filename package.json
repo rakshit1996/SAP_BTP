@@ -18,12 +18,19 @@
     }
   },
   "scripts": {
-    "watch-first_tile": "cds watch --open first_tile/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-first_tile": "cds watch --open first_tile/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-catlog_app": "cds watch --open catlog_app/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-bookshop_app": "cds watch --open bookshop_app/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
-    "app/first_tile"
+    "app/first_tile",
+    "app/catlog_app",
+    "app/bookshop_app"
   ],
   "devDependencies": {
-    "@sap/ux-specification": "^1.108.16"
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.108.16",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0"
   }
 }

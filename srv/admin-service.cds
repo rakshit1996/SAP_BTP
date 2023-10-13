@@ -1,8 +1,8 @@
 using { sap.capire.bookshop as my} from '../db/schema';
-service AdminService {
+service AdminService @(path:'/admin') {
    
+   entity Books as select from my.Books;
    entity Authors as projection on my.Authors;
-   entity Books as projection on my.Books;
    entity Orders as projection on my.Orders;
    entity OrderItems as projection on my.OrderItems;
 
