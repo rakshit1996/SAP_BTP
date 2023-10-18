@@ -3,7 +3,7 @@ using from './admin-service';
 
 // Books entity annotation for app/adminapp/admin_app_index.html
 
-annotate AdminServiceService.Books with @(
+annotate AdminService.Books with @(
     UI: {
         HeaderInfo: {
             TypeName: '{i18n>Book}',
