@@ -1,1 +1,1 @@
-GET http://localhost:4004/admin/Books?$expand=authors
+GET http://localhost:4004/catlog/Books
