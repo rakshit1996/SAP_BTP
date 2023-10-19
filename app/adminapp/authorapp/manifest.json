@@ -1,0 +1,103 @@
+{   
+    "sap.ui":{
+        "technology": "GUI",
+        "deviceTypes":{
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        }
+
+    },
+    
+    "_version": "1.1.0",
+    "sap.app": {
+        "id": "bookshop",
+        "type": "application",
+        "title": "Manage Authors",
+        "description": "Bookshop",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.8.0"
+        },
+        "dataSources": {
+            "AdminService": {
+                "uri": "/admin/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0"
+            }
+        }
+    }
+    
+},
+"sap.ui5": {
+    "dependencies": {"libs": {"sap.fe.core":{} },"minUI5Version": "" },
+    "models": {
+        "i18n": {
+            "type": "sap.ui.model.resource.ResourceModel",
+            "uri": "i18n/i18n.properties"
+        },
+        "": {
+            "dataSource": "AdminService",
+            "settings": {
+                "synchronizationMode": "None",
+                "operationMode": "Server",
+                "autoExpandSelect": true,
+                "earlyRequests": true,
+                "groupProperties": {
+                    "default": {
+                        "submit": "Auto"
+                    }
+                }
+            }
+        }
+    },
+    "contentDensities": {
+        "compact": false,
+        "cozy": false
+    },
+"routing": {
+    "routes": [
+        {
+            "pattern": "",
+            "name": "AuthorsList",
+            "target": "AuthorsList"
+        },
+        {
+            "pattern": "Authors({key})",
+            "name": "AuthorsDetails",
+            "target": "AuthorsDetails"
+        }
+    ],
+    "targets": {
+        "AuthorsList": {
+            "type": "Component",
+            "id": "AuthorsList",
+            "name": "sap.fe.templates.ListReport",
+            "options": {
+                "settings": {
+                    "entitySet": "Authors",
+                    "navigation": {
+                        "Authors": {
+                            "detail": {
+                                "route": "AuthorsDetails"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "AuthorsDetails": {
+            "type": "Component",
+            "id": "AuthorsDetails",
+            "name": "sap.fe.templates.ObjectPage",
+            "options": {
+                "settings": {
+                    "entitySet": "Authors"
+                }
+            }
+        }
+    }
+    }
+}
+}
